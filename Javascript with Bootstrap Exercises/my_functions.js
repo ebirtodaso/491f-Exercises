@@ -2,10 +2,10 @@
 
 //Function waits for doge to be clicked and gives a response
 $(document).ready(function(){
-  $("button").click(function(){
+  $("#doge_button").click(function(){
     $(this).remove();
+    $("#doge_alert").attr("class","alert alert-success")
     $("#doge_text").text("You got a doge!");
-    $("#doge_text").css("color", "aquamarine");
   });
 });
 
