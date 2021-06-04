@@ -1,0 +1,37 @@
+/* CSS for Javascript exercises */
+
+body  {
+  background-color: rgb(76, 79, 98);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1  {
+  color:rgb(224, 153, 241);
+}
+
+main  {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+div .doge {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+}
+
+#doge_pic  {
+  height: 100px;
+  width: 100px;
+}
+
+footer {
+  color: rgb(190, 147, 195);
+  padding-top: 50px;
+}
+
+
