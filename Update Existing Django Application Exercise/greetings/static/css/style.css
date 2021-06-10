@@ -1,0 +1,22 @@
+body  {
+  background-color: rgb(182, 216, 213);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body > ul, ol, li {
+  padding: 10px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#fancy {
+  padding-top: 20px;
+  font-size: xx-large;
+  text-shadow: 2px 2px rgb(145, 179, 99);
+  font-style: italic;
+  font-weight: bold;
+}
