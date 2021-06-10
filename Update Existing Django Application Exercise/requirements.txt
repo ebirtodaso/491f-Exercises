@@ -1,0 +1,2 @@
+django~=2.1.7
+pyyaml~=5.1 # needed to support defining our seeds in a YAML file

@@ -1,0 +1,9 @@
+{% load staticfiles %}    
+<head>  
+  <link rel="stylesheet" href="{%  static  'css/style.css'  %}">
+</head>
+
+<body>
+  <p id="fancy" class="font-italic">{{ object.message }}</p>
+  <a href="{% url 'greetings:index' %}">Return to Greetings</a>
+</body>
