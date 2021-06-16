@@ -1,0 +1,4 @@
+--- # basic list
+- model: list.listItem
+  fields:
+    list: Fold Laundry

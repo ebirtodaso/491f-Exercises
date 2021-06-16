@@ -1,0 +1,13 @@
+{% if list %}
+    <ul>
+    {% for thing in list %}
+        <li>{{ thing.item }}
+          <span><a href="{% url 'lists:update' thing.id %}">edit</a></span>
+          <span><a href="{% url 'lists:delete' thing.id %}">delete</a></span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No items in list</p>
+{% endif %}
+<a href="{% url 'lists:create' %}">Add item to list</a>
