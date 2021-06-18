@@ -2,7 +2,12 @@
     <ul>
     {% for thing in list %}
         <li>
-          <input type="checkbox"> 
+          <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            
+          </form>
+          {{ thing.isDone }} 
           {{ thing.item }}          
           <span><a href="{% url 'lists:update' thing.id %}">edit</a></span>
           <span><a href="{% url 'lists:delete' thing.id %}">delete</a></span>

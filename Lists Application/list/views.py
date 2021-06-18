@@ -1,6 +1,7 @@
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import listItem
+from .forms import doneBox
 
 class IndexView(generic.ListView):
     template_name = 'list/index.html'
