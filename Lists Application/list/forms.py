@@ -1,8 +1,9 @@
 from django import forms
 from .models import listItem
 
-class doneBox(forms.Form):
-  isDone = forms.BooleanField()
+class doneForm(forms.Form):
+  isDone = forms.BooleanField(required=False)
 
   class Meta:
     model = listItem
+    exclude = ['item']
