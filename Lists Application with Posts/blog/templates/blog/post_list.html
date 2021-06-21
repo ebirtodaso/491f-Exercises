@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}     
+  {% for post in posts %}
+    <article class="post">
+      <h2><a href="">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+      <time class="date">published: {{ post.published_date }}</time>
+      <span><a href="{% url 'blog:edit' pk=post.pk %}">edit</a></span>
+      <span><a href="/">delete</a></span>
+    </article>
+  {% endfor %}
+{% endblock %}
+
+
