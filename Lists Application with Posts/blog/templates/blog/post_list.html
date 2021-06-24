@@ -1,9 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-
-<a href="{% url 'blog:filter_by_published'%}">filter posts by published date</a>
-<a href="{% url 'blog:post_by_author'%}">order posts by author</a>     
+  <form method="post" action="{% url 'blog:post_list' %}">{% csrf_token %}
+      Filter: {{ form.filter_by }} {{ form.filter_string }}
+      Order: {{ form.order_by }}  
+      <button type="button" class="btn btn-outline-secondary btn-sm">Submit</button>
+  </form>
   {% for post in posts %}
     <article class="post">
       <h2><a href="">{{ post.title }}</a></h2>
