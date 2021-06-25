@@ -5,50 +5,30 @@ from django.urls import reverse_lazy
 from .forms import PostForm, SortForm
 from .models import Post
 
-class UpdateView(generic.edit.FormMixin, generic.ListView):
-  
-  def get(self, request, *args, **kwargs):
-      # From ProcessFormMixin
-      form_class = self.get_form_class()
-      self.form = self.get_form(form_class)
-
-      # From BaseListView
-      self.object_list = self.get_queryset()
-      allow_empty = self.get_allow_empty()
-      if not allow_empty and len(self.object_list) == 0:
-          raise Http404(_(u"Empty list and '%(class_name)s.allow_empty' is False.")
-                        % {'class_name': self.__class__.__name__})
-
-      context = self.get_context_data(object_list=self.object_list, form=self.form)
-      return self.render_to_response(context)
-
-  def post(self, request, *args, **kwargs):
-      return self.get(request, *args, **kwargs)
-
-
-
-class PostView(UpdateView):
+class PostView(generic.ListView):
   model = Post
   form_class = SortForm
   template_name = "blog/post_list.html"
   context_object_name = 'posts'
-  #filter_string = self.form['filter_string']
 
   def get_queryset(self):
-    #data = 
-    #self.request.
-    #order = 'created_date'
-    #new_context = Post.objects.filter(
-                                      #text=filter_val,
-                                      #).order_by(order)
+    context = Post.objects.all()
 
-    #return new_context
+    choice = self.request.GET.get('choice', None)
+    filter_text = self.request.GET.get('filter', None)
+    order = self.request.GET.get('order', None)
 
-  #def get_context_data(self, **kwargs):
-    #context = super(PostView, self).get_context_data(**kwargs)
-    #context['string'] = self.request.GET.get('filter', 'Test')
-    #context['orderby'] = self.request.GET.get('orderby', 'created_date')
-    #return context
+    if (filter_text and choice) is not None:
+      if choice == '1':
+        context = Post.objects.filter(text__contains=filter_text)
+
+    if order is not None:
+      if order == '1':
+        context = context.order_by('published_date')
+      if order == '2':
+        context = context.order_by('-published_date')
+
+    return context
 
 #Creates a new post
 def post_new(request):

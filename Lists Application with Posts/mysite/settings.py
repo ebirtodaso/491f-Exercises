@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'list.apps.ListConfig',
     'blog.apps.BlogConfig',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -104,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Pacific/Honolulu'
 
 USE_I18N = True
 
