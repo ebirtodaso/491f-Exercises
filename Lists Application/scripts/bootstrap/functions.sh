@@ -24,6 +24,7 @@ setup_containers() {
   case $environment in
     'development')
       docker-compose build
+      docker-compose run app /bin/sh scripts/setup_app.sh
     ;;
   esac
 }
